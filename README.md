@@ -35,6 +35,7 @@ Instagram 等で猫の保護をしたという投稿を多く見かけます。<
 ## 設計書
 
 ER図　https://drive.google.com/file/d/1r0RZoHYTUzxVU-V7GBiLAH7dAt9bsA8q/view?usp=sharing
+UI flows https://drive.google.com/file/d/1r0RZoHYTUzxVU-V7GBiLAH7dAt9bsA8q/view?usp=sharing
 
 ## チャレンジ要素一覧
 
