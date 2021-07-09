@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-=======
 # Happiness Arc (幸せの架け橋)
 
 ## サイト概要
@@ -75,4 +49,3 @@ https://docs.google.com/spreadsheets/d/1Ol3C7Wtwj6fOv93H_9aD7mWlJHyYtkK-MulvT39H
 - フレームワーク：Ruby on Rails
 - JS ライブラリ：jQuery
 - IDE：Cloud9
->>>>>>> origin/main
