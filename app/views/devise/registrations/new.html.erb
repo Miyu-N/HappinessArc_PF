@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row mt-3 mb-3">
+    <div class="col-lg-10 mx-auto">
+      <h2>新規登録</h2>
+      
+      <%= form_with model: @user, url: new_user_registration_path, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label "メールアドレス", class: "col-4 mt-2" %>
+        <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", class: "form-control-sm col-3" %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label "ユーザーネーム", class: "col-4 mt-2" %>
+        <%= f.text_field :userame, autofocus: true, placeholder: "username", class: "form-control-sm col-3" %>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label "パスワード（6文字以上）", class: "col-4 mt-2" %>
+        <%= f.password_field :password, autofocus: true, class: "form-control-sm col-3" %>
+      </div>
+    
+      <div class="form-group">
+        <%= f.label "パスワード(確認用)" , class: "col-4 mt-2"%>
+        <%= f.password_field :password, autofocus: true, class: "form-control-sm col-3" %>
+      </div>
+    
+      <div class="actions text-center">
+        <%= f.submit "新規登録", class: "btn btn-success col-4 mt-2" %>
+      </div>
+    <% end %>
+    
+    <div class="mb-3">
+      <h3 class="mb-3">既に登録済みの方</h3>
+      <%= link_to "こちら", new_user_session_path %> からログインしてください。
+    </div>  
+    </div>
+  </div>
+</div>
+
