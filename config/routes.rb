@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'categories/show'
+  end
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  
 # ====ユーザー側====
@@ -41,7 +44,7 @@ Rails.application.routes.draw do
   get '/' => 'homes#top', as: 'top'
     resources :users, only: [:index, :show, :edit, :update]
     resources :categories, only: [:index, :create, :edit, :update]
-    
+    resources :posts, only: [:index, :show]
   end  
   resources :contacts, only: [:index, :show]
   

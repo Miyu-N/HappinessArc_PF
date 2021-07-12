@@ -11,7 +11,60 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar bg-white border-bottom">
+        <div class="container">
+          <a class="navbar-brand text-dark" href="/"><span>HappinessArc</span></a>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarNavDropdown" style="">
+            <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li><%= link_to "投稿一覧", posts_path, class:"fas fa-home nav-link text-dark" %></a></li>
+                <li><%= link_to "マイページ", user_path(current_user.id), class:"fas fa-users nav-link text-dark" %></a></li>
+                <li>メッセージ一覧</li>
+                <li><%= link_to "ログアウト", destroy_user_session_path,class:"fas fa-sign-out-alt nav-link text-dark",method: :delete %></li>
+              
+              <% elsif admin_signed_in? %>
+                <li><%= link_to"投稿一覧",admin_posts_path,  class:"fas fa-home nav-link text-dark" %></li>
+                <li><%= link_to"ユーザー一覧",admin_users_path, class:"fas fa-link nav-link text-dark" %></li>
+                <li><%= link_to"カテゴリー一覧", admin_categories_path, class:"fas fa-user-plus nav-link text-dark" %></li>
+                <li><%= link_to "ログアウト", destroy_admin_session_path,class:"fas fa-sign-out-alt nav-link text-dark",method: :delete %></li>
+                
+              <% else %>
+                <li><%= link_to"About",about_path,class:"fas fa-link nav-link text-dark" %></li>
+                <li><%= link_to"投稿一覧",posts_path, class:"fas fa-home nav-link text-dark" %></li>
+                <li><%= link_to"新規登録", new_user_registration_path ,class:"fas fa-user-plus nav-link text-dark" %></li>
+                <li><%= link_to"ログイン", new_user_session_path,  class:"fas fa-sign-in-alt nav-link text-dark" %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
     
+    <div class="col-lg-10 mx-auto">
+      <% if flash[:notice] %>
+      <div class="alert alert-info">
+        <%= flash[:notice] %>
+      </div>
+      <% end %>
+      <% if flash[:alert] %>
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+      <% end %>
+    </div>
+    
+    <div class="main">
     <%= yield %>
+    </div>
+    
+    <footer class="fixed-bottom">
+      <div class="d-flex align-items-center justify-content-center text-dark border-top" style="height: 50px;">
+        <p class="mb-0" id="nomimasu">&copy; HappinessArc</p>
+      </div>
+    </footer>
   </body>
 </html>
