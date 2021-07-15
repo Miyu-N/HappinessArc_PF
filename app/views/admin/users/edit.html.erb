@@ -1,2 +1,15 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div class="container">
+  <div class="row mt-5 mb-5">
+    <div class="col-md-10 mx-auto">
+      <h3>ユーザー情報編集</h3>
+      <%= render 'show' %>
+        <%= form_with model:@user, url:admin_user_path, local:true do |f| %>
+        <div>
+          <%= f.label "会員ステータス", class: "col-3 mt-2"%>
+          <%= f.radio_button :is_deleted, "false" %>有効 　　<%= f.radio_button :is_deleted, "true" %>退会
+        </div>
+        <div class="offset-3 mt-2"><%= f.submit '変更を保存', class: "btn btn-success col-md-4 offset-md-2" %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
