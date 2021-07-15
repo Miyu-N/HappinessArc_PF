@@ -19,8 +19,11 @@ class Public::PostsController < ApplicationController
     
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+  
   def create
-    
     @post = Post.new(post_params)
      @post.user_id = current_user.id
     if @post.save
@@ -29,10 +32,6 @@ class Public::PostsController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  def show
-    @post = Post.find(params[:id])
   end
   
   def edit
@@ -64,11 +63,4 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :image, :body, :user_id, :category_id)
   end
-  
-  def ensure_correct_user
-    @post = Post.find(params[:id])
-    unless @post.user == current_user
-      redirect_to posts_path
-    end
-  end  
 end

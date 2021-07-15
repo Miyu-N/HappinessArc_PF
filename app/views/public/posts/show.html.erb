@@ -3,8 +3,10 @@
     <div class='col-md'>
       <h2>ユーザー情報</h2>
       <div class="mt-5 mb-5"><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image_icon.jpg") %></div>
-      <div class="mb-5"><%= link_to @post.user.username %></div>
+      <div class="mb-5"><%= link_to @post.user.username, user_path(@post.user) %></div>
       <div class="mb-5"><%= @post.user.introduction %></div>
+      
+      
     </div>
   
     <div class="col-md-5">
