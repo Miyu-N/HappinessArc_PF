@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :posts do
       resources :likes, only: [:create, :destroy]
     end  
+  
+    
     
     resources :contacts, only: [:new, :create]
     post 'contacts/confirm' => 'contacts#confirm', as: 'contacts_confirm'

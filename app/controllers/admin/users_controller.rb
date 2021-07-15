@@ -17,7 +17,7 @@ class Admin::UsersController < ApplicationController
     @user = User.find(params[:id]) 
     if @user.update(user_params)
       flash[:notice] = "ユーザー情報を変更しました"
-      redirect_to admin_customers_path
+      redirect_to admin_users_path
     else
       flash.now[:alert] = "保存できませんでした"
       render :edit

@@ -11,5 +11,10 @@ class User < ApplicationRecord
   
   attachment :profile_image
   
+  # deviseメソッド：退会（論理削除）後のログイン
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
+  
   
 end
