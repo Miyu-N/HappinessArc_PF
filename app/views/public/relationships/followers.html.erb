@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="col-md-12 mx-auto">
+    <div class="mt-3 mb-3">
+      <div class="items-list text-center">
+        <h2>Follower Users</h2>
+        <% if @users.exists? %>
+          <%= render 'follow', users: @users %>
+        <% else %>
+          <p>ユーザーはいません</p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

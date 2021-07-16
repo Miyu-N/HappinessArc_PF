@@ -4,6 +4,12 @@
       <h2>ユーザー情報編集</h2>
       
         <%= form_with model: @user, url: user_path, local: true do |f| %>
+        
+          <div class="form-group">
+            <%= f.label :image %>
+            <%= f.attachment_field :profile_image, class: "form-control-file user_image" %>
+          </div>
+          
           <div class="form-group">
             <%= f.label "名前", class: "col-3 mt-5" %>
             <%= f.text_field :name, autofocus: true, placeholder: "ハピネス　アーク", class: "form-control-sm col-3" %>
