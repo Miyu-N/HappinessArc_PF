@@ -1,0 +1,36 @@
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-md-6 offset-md-2">
+      <h2 class="page-title">投稿編集</h2>
+    </div>
+  </div>
+  <%= form_with model: @post, local:true do |f| %>
+    <div class="row d-block justify-content-center">
+      <div class="col-md-6 mx-auto">
+        
+      </div>
+      <table class="table table-borderless col-md-6 mx-auto">
+        <tr>
+          <th>投稿画像</th>
+          <td colspan="2"><%= f.attachment_field :image %></td>
+        </tr>
+        <tr>
+          <th>タイトル</th>
+          <td colspan="2"><%= f.text_field :title, placeholder: "タイトル", size: "30", class: "form-control" %></td>
+        </tr>
+        <tr>
+          <th>カテゴリー</th>
+          <td colspan="2"><%= f.collection_select :category_id, Category.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %></td>
+        </tr>
+        <tr>
+          <th>投稿内容</th>
+          <td colspan="2"><%= f.text_area :body, placeholder: "", size: "30x5", class: "form-control" %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="row d-flex justify-content-center mb-5">
+        <%= f.submit '変更を保存', class: "btn btn-success col-md-3" %>
+    </div>
+    <br></br>
+  <% end %>
+</div>

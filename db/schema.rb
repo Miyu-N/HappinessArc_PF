@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_09_111218) do
+ActiveRecord::Schema.define(version: 2021_07_15_130948) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,6 +26,14 @@ ActiveRecord::Schema.define(version: 2021_07_09_111218) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,6 +62,13 @@ ActiveRecord::Schema.define(version: 2021_07_09_111218) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.integer "category_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -89,7 +104,7 @@ ActiveRecord::Schema.define(version: 2021_07_09_111218) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "username", null: false
-    t.string "profile_image", null: false
+    t.string "profile_image_id"
     t.text "introduction", null: false
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false

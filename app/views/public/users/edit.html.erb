@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-lg-10 mx-auto">
+      <h2>ユーザー情報編集</h2>
+      
+        <%= form_with model: @user, url: user_path, local: true do |f| %>
+          <div class="form-group">
+            <%= f.label "名前", class: "col-3 mt-5" %>
+            <%= f.text_field :name, autofocus: true, placeholder: "ハピネス　アーク", class: "form-control-sm col-3" %>
+            <% if @user.errors.include?(:name) %>
+              <p style="color: red;"><%= @user.errors.full_messages_for(:name).first %>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label "メールアドレス", class: "col-3 mt-2" %>
+            <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", class: "form-control-sm col-3" %>
+            <% if @user.errors.include?(:email) %>
+              <p style="color: red;"><%= @user.errors.full_messages_for(:email).first %>
+            <% end %>
+          </div>
+          
+          <div class="form-group">
+            <%= f.label "ユーザーネーム", class: "col-3 mt-2"%>
+            <%= f.text_field :username, autofocus: true, placeholder: "happycat", class: "form-control-sm col-3" %>
+            <% if @user.errors.include?(:username) %>
+              <p style="color: red;"><%= @user.errors.full_messages_for(:username).first %>
+            <% end %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label "自己紹介", class: "col-3 mt-2" %>
+            <%= f.text_area :introduction, autofocus: true, placeholder: "hello", class: "form-control-sm col-3" %>
+            <% if @user.errors.include?(:phone_number) %>
+              <p style="color: red;"><%= @user.errors.full_messages_for(:introduction).first %>
+            <% end %>
+          </div>
+
+          <div class="actions text-center">
+            <%= f.submit "編集内容を保存", class: "btn btn-success col-4 mt-2" %>
+            <%= link_to "退会する", users_unsubscribe_path, class: "btn btn-danger col-2 ml-5" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+</div>
