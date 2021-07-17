@@ -16,6 +16,7 @@
                 <p class="card-title">
                   <%= link_to post.title, post_path(post) %>
                 </p>
+                <%= link_to post.user.username, user_path(post) %>
               </div>
             </div>
           </div>

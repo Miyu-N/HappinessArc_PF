@@ -1,6 +1,8 @@
 class Public::ChatsController < ApplicationController
   before_action :authenticate_user!
   before_action :follow_each_other, only: [:show]
+  
+  
   def show
     @user = User.find(params[:id])
     rooms = current_user.user_rooms.pluck(:room_id)# カレントユーザーのuser_roomにあるroom_idの値の配列をroomsに代入。
