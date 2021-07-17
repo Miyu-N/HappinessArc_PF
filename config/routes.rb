@@ -19,11 +19,11 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update, :destroy] do
       resource :relationships, only: [:create, :destroy]
     	get 'followings' => 'relationships#followings', as: 'followings'
-    	get 'followers' => 'relationships#followers', as: 'followers'
+  	  get 'followers' => 'relationships#followers', as: 'followers'
     end
+      get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+      patch 'users/:id/withdraw' => 'users#withdraw', as: 'withdraw'
   
-    get 'users/unsubscribe' => 'users#unsubscribe'
-    patch 'users/withdraw' => 'users#withdraw'
     
     resources :posts do
       resources :likes, only: [:create, :destroy]
