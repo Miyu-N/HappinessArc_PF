@@ -1,10 +1,9 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
-  
+
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
   end
 
   def edit
@@ -20,24 +19,23 @@ class Public::UsersController < ApplicationController
 
   def unsubscribe
     @user = User.find(params[:id])
-    redirect_to  users_unsubscribe_path
   end
 
 
   def withdraw
-    current_user.update(is_deleted: true)
+    @user = User.find(params[:id])
+    @user.update(is_deleted: true)
     reset_session
     redirect_to root_path
     flash[:notice] = "ご利用ありがとうございました。"
   end
-
 
  private
 
     def user_params
       params.require(:user).permit(:name, :username, :email, :introduction, :profile_image, :is_deleted )
     end
-    
+
     def ensure_correct_user
       @user = User.find(params[:id])
       unless @user == current_user
