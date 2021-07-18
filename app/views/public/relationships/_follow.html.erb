@@ -9,7 +9,7 @@
   <tbody>
     <% users.each do |user| %>
       <tr>
-        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image_icon.jpg") %></td>
+        <td><%= link_to attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image_icon.jpg"), user_path(user.id) %></td>
         <td><%= user.name %></td>
         <td>フォロー数: <%= user.followings.count %></td>
         <td>フォロワー数: <%= user.followers.count %></td>

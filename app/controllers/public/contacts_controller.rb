@@ -1,4 +1,7 @@
 class Public::ContactsController < ApplicationController
+  # コンタクトページだけコンタクトリンクを消す
+  layout 'no_contact'
+  
   def new
     @contact = Contact.new
   end
@@ -31,7 +34,7 @@ class Public::ContactsController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:email, :name, :phone_number, :subject, :message)
+    params.require(:contact).permit(:email, :name, :subject, :message)
   end
 
 end

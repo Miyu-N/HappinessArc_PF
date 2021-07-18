@@ -30,7 +30,7 @@
                 <li><%= link_to"投稿一覧",admin_posts_path,  class:"fas fa-home nav-link text-dark" %></li>
                 <li><%= link_to"ユーザー一覧",admin_users_path, class:"fas fa-link nav-link text-dark" %></li>
                 <li><%= link_to"カテゴリー一覧", admin_categories_path, class:"fas fa-user-plus nav-link text-dark" %></li>
-                <li><%= link_to "お問い合わせ一覧", admin_contacts_path, class:"fas fa-question-circle nav-link text-dark" %></li>
+                <li><%= link_to"お問い合わせ一覧", admin_contacts_path, class:"fas fa-question nav-link text-dark" %></li>
                 <li><%= link_to "ログアウト", destroy_admin_session_path,class:"fas fa-sign-out-alt nav-link text-dark",method: :delete %></li>
                 
               <% else %>
