@@ -51,9 +51,9 @@
 <% unless @user.id == current_user.id %>
   <% if current_user != user && current_user.following?(user) && user.following?(current_user)  %>
   <% if @isRoom == true %>
-    <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary m">チャットへ</a>
+    <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary mt-2">チャットへ</a>
   <% else %>
-    <%= form_with model: @room, url: chats_path(@user.id) do |f| %>
+    <%= form_with model: @chat do |f| %>
       <%= fields_for @user_room do |e| %>
         <%= e.hidden_field :user_id, value: @user.id %>
       <% end %>
