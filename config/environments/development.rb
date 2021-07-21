@@ -31,7 +31,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = true　#メールの送信に失敗した時にエラーを出すかどうか （出したいので true）
+  config.action_mailer.raise_delivery_errors = true#メールの送信に失敗した時にエラーを出すかどうか （出したいので true）
 
   config.action_mailer.perform_caching = false
 

@@ -28,13 +28,16 @@ Rails.application.routes.draw do
 
 
 
-    resources :contacts, only: [:new, :create]
-    post 'contacts/confirm' => 'contacts#confirm', as: 'contacts_confirm'
-    post 'contacts/back' => 'contacts#back'
-    get 'contacts/done' => 'contacts#done'
-
+    resources :contacts, only: [:new, :create] do
+      collection do
+        post 'confirm' => 'contacts#confirm', as: 'contacts_confirm'
+        post 'back' => 'contacts#back'
+        get 'done' => 'contacts#done'
+      end
+    end
+    
     resources :chats, only: [:create]
-    resources :rooms, only: [:show, :create, :index]
+    resources :rooms, only: [:show, :create]
   end
 
 
