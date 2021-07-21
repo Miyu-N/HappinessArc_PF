@@ -2,22 +2,24 @@ class Public::LikesController < ApplicationController
   before_action :authenticate_user!
   
   def create
-    @post = Post.find(params[:post_id])
-    @like = current_user.likes.build(post_id: params[:post_id])
-    @like.save
-    
+    @like = current_user.likes.build(like_params)
+    @post = @like.post
+    if @like.save
+      respond_to :js
+    end
   end
-  
+
   def destroy
-    @post = post.find(params[:post_id])
-    @like = Like.ffind_by(post_id: params[:post_id], usser_id: current_user_id)
-    @like.destroy
-    
-  end 
-  
+    @like = Like.find_by(params[:id])
+    @post = @like.post
+    if @like.destroy
+      respond_to :js
+    end
+  end
+
   private
-  
+
   def like_params
     params.permit(:post_id)
-  end  
+  end
 end

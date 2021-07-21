@@ -53,7 +53,7 @@
   <% if @isRoom == true %>
     <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary mt-2">チャットへ</a>
   <% else %>
-    <%= form_with model: @chat do |f| %>
+    <%= form_with model: @room, method: :post, local: true do |f| %>
       <%= fields_for @user_room do |e| %>
         <%= e.hidden_field :user_id, value: @user.id %>
       <% end %>

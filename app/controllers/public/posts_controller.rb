@@ -8,19 +8,7 @@ class Public::PostsController < ApplicationController
   
   def index
     @posts = Post.all.page(params[:page]).per(8)
-    # to  = Time.current.at_end_of_day
-    # from  = (to - 6.day).at_beginning_of_day
-    # @posts = Post.includes(:liked_users).
-    # sort {|a,b| 
-    # b.liked_users.includes(:likes).where(created_at: from...to).size <=> 
-    #     a.liked_users.includes(:likes).where(created_at: from...to).size
-    #   }
     @categories = Category.all
-    
-  end
-
-  def show
-    @post = Post.find(params[:id])
   end
   
   def create
@@ -33,6 +21,10 @@ class Public::PostsController < ApplicationController
       render 'new'
     end
   end
+  
+  def show
+    @post = Post.find(params[:id])
+  end  
   
   def edit
     @post = Post.find(params[:id])
@@ -58,9 +50,25 @@ class Public::PostsController < ApplicationController
     @likes = Like.where(post_id: @post.id)
   end
   
-  private
-  
-  def post_params
-    params.require(:post).permit(:title, :image, :body, :user_id, :category_id)
+  def weekly_rank
+    to = Time.current.at_end_of_day
+    from = (to - 6.day).at_beginning_of_day
+    @posts = Post.includes(:liked_users).
+      sort { |a, b|
+        b.liked_users.includes(:likes).where(created_at: from...to).size <=>
+        a.liked_users.includes(:likes).where(created_at: from...to).size
+      }
   end
-end
+
+  
+  private
+  def post_params
+      params.require(:post).permit(:title, :image, :body, :user_id, :category_id)
+  end
+  
+  def ensure_correct_user
+    unless @post.user == current_user
+      redirect_to posts_path
+    end
+  end
+end  

@@ -30,6 +30,8 @@
           <th>内容</th>
           <td><%= @post.body %></td> 
         </tr>
+        <tr>
+          <td class="like-btn"><%= render "public/likes/like-btn", post: @post %></td>
         <% if @post.user == current_user %>
           <tr>
             <td><%= link_to "編集する", edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></td>
