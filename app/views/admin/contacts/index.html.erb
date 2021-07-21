@@ -1,0 +1,30 @@
+<div class="container mt-3">
+  <div class="row mb-3">
+    <div class="col-md-8 mx-auto">
+      <h3>お問い合わせ一覧</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 mx-auto">
+      <div class="items-all">
+        <table class="table table-hover">
+          <thead class="table-active">
+            <tr>
+              <th style="width: 20%">お客様名</th>
+              <th style="width: 25%">メールアドレス</th>
+              <th style="width: 65%">用件</th>
+          </thead>
+          <tbody>
+            <% @contacts.each do |contact| %>
+            <tr onclick='window.location="<%= '/admin/contacts/' + contact.id.to_s %>"' role="link" class="contact-page">
+              <td><%= contact.name %></td>
+              <td><%= contact.email %></td>
+              <td><%= contact.subject %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
