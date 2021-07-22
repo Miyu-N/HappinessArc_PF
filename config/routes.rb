@@ -36,8 +36,8 @@ Rails.application.routes.draw do
       end
     end
     
-    resources :chats, only: [:create]
-    resources :rooms, only: [:show, :create]
+    resources :chats, only: [:show, :create]
+    resources :rooms, only: [:index]
   end
 
 

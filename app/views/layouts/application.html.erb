@@ -23,7 +23,7 @@
               <% if user_signed_in? %>
                 <li><%= link_to "投稿一覧", posts_path, class:"fas fa-home nav-link text-dark" %></a></li>
                 <li><%= link_to "マイページ", user_path(current_user.id), class:"fas fa-users nav-link text-dark" %></a></li>
-                
+                <li><%= link_to "チャット一覧", rooms_path, class:"nav-link text-dark" %></li>
                 <li><%= link_to "ログアウト", destroy_user_session_path,class:"fas fa-sign-out-alt nav-link text-dark",method: :delete %></li>
               
               <% elsif admin_signed_in? %>

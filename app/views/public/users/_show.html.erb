@@ -47,18 +47,9 @@
     <%= link_to 'フォローする', user_relationships_path(user.id), method: :POST, class: "btn btn-success" %>
   <% end %>
 <% end %>
-
-<% unless @user.id == current_user.id %>
+  
+<% unless @user == current_user %>
   <% if current_user != user && current_user.following?(user) && user.following?(current_user)  %>
-  <% if @isRoom == true %>
-    <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary mt-2">チャットへ</a>
-  <% else %>
-    <%= form_with model: @room, method: :post, local: true do |f| %>
-      <%= fields_for @user_room do |e| %>
-        <%= e.hidden_field :user_id, value: @user.id %>
-      <% end %>
-      <%= f.submit "チャットを始める", class:"btn btn-primary mt-2"%>
-    <% end %>
+    <div class="col pt-3"><%= link_to 'チャットする', chat_path(@user), class: 'btn btn-outline-success rounded-pill far fa-comments' %></div>
   <% end %>
-  <% end %>
-<% end %>
+<% end %>  

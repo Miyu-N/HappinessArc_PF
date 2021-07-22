@@ -4,23 +4,6 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @currentUserUserRoom=UserRoom.where(user_id: current_user.id)
-    @userUserRoom=UserRoom.where(user_id: @user.id)
-    unless @user.id == current_user.id
-      @currentUserUserRoom.each do |cu|
-        @userUserRoom.each do |u|
-          if cu.room_id == u.room_id then
-            @isRoom = true
-            @roomId = cu.room_id
-          end
-        end
-      end
-      if @isRoom
-      else
-        @room = Room.new
-        @user_room = UserRoom.new
-      end
-    end
   end
   
   def edit
