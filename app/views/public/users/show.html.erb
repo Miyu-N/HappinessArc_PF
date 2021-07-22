@@ -27,7 +27,7 @@
         <h2>投稿一覧</h2>  
         </br>
         <%= link_to "新しく投稿する", new_post_path, class: "btn btn-success" %>
-        
+        <%= render 'public/posts/index', posts: @posts %>
       </div> 
   </div>
 </div>
