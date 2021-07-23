@@ -6,23 +6,23 @@
           <div class="offset-md-11 col-md-1 " >
             <%= link_to '', new_post_path, class: "fas fa-plus-circle fa-3x add-item" %>
           </div>
-        <% @posts.each do |post| %>
-          <div class="card-deck text-center d-inline-flex mt-3 col-md-3">
-            <div class="card border-0">
-              <div class="card-img-top">
-                <%= link_to attachment_image_tag(post, :image, format: "jpeg", size: "200x180", fallback: "no_image.jpg", class: "rounded"), post_path(post.id) %>
+          <div class="scroll-list jscroll">
+            <% @posts.each do |post| %>
+              <div class="card-deck text-center d-inline-flex mt-3 col-md-3">
+                <div class="card border-0">
+                    <%= link_to attachment_image_tag(post, :image, format: "jpeg", size: "200x180", fallback: "no_image.jpg", class: "rounded"), post_path(post.id) %>
+                  <div class="card-body">
+                    <p class="card-title">
+                      <%= link_to post.title, post_path(post), class: "text-muted" %>
+                    </p>
+                    <%= link_to post.user.username, user_path(post.user.id), class: "text-muted" %>
+                  </div>
+                </div>
               </div>
-              <div class="card-body">
-                <p class="card-title">
-                  <%= link_to post.title, post_path(post) %>
-                </p>
-                <%= link_to post.user.username, user_path(post.user.id) %>
-              </div>
-            </div>
-          </div>
-        <% end %>
+            <% end %>
+              <%= paginate @posts %>
+          </div>    
       </div>
     </div>
-    <div class="text-center mx-auto"></div>
   </div>
 </div>

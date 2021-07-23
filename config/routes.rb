@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'search/search'
   scope module: :public do
     root to: 'homes#top'
-    get 'about' => 'homes#about'
+    
 
     resources :users, only: [:show, :edit, :update, :destroy] do
       resource :relationships, only: [:create, :destroy]
@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   }
 
   namespace :admin do
-  get '/' => 'homes#top', as: 'top'
+  get '/' => 'posts#index', as: 'top'
     resources :users, only: [:index, :show, :edit, :update]
     resources :categories, only: [:index, :create, :edit, :update]
     resources :posts, only: [:index, :show]

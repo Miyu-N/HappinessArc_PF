@@ -5,10 +5,7 @@
       <div class="mt-5 mb-5"><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image_icon.jpg") %></div>
       <div class="mb-5"><%= link_to @post.user.username, user_path(@post.user) %></div>
       <div class="mb-5"><%= @post.user.introduction %></div>
-      
-      
     </div>
-  
     <div class="col-md-5">
       <h2>投稿詳細</h2>
       <div class="col-md mt-5">
@@ -32,13 +29,13 @@
         </tr>
         <tr>
           <td class="like-btn"><%= render "public/likes/like-btn", post: @post %></td>
-        <% if @post.user == current_user %>
-          <tr>
-            <td><%= link_to "編集する", edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></td>
-            <td><%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}"%></td>
-          </tr>
-        <% end %>  
       </table>
+      <% if @post.user == current_user %>
+        <%= link_to "編集する", edit_post_path(@post), class: "btn btn-outline-info rounded-pill far fa-edit edit_post_#{@post.id}" %>
+        <%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger rounded-pill destroy_post_#{@post.id}"%>
+      <% end %>
     </div>
   </div>
 </div>
+
+

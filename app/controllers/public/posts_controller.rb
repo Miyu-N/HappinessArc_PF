@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  
   
   def new
     @post = Post.new
@@ -40,6 +40,7 @@ class Public::PostsController < ApplicationController
   end
   
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
     flash[:notice] = "投稿を削除しました"
@@ -66,9 +67,5 @@ class Public::PostsController < ApplicationController
       params.require(:post).permit(:title, :image, :body, :user_id, :category_id)
   end
   
-  def ensure_correct_user
-    unless @post.user == current_user
-      redirect_to posts_path
-    end
-  end
+
 end  

@@ -1,8 +1,10 @@
 <%= form_with model:@post, local:true do |f| %>
   <div class="form-group">
   <%= f.label "写真" %>
-  <%= attachment_image_tag(@post, :image, :fill, 100, 100, fallback: "no_image.jpg") %>
+  <%= f.attachment_field :image %>
+  
   </div>
+  
   
   <div class="form-group">
     <%= f.label "タイトル" %>
@@ -16,9 +18,11 @@
   
   <div class="form-group">
     <%= f.label "投稿内容" %>
-    <%= f.text_area :body, class: 'form-control post_body' %>
+    <%= f.text_area :body, class: "form-control post_body" %>
   </div>
+  
   <div class="form-group">
-    <%= f.submit "投稿する", class: 'btn btn-success' %>
+    <%= f.submit "投稿する", class: "btn btn-outline-info rounded-pill" %>
   </div>
+  
 <% end %>

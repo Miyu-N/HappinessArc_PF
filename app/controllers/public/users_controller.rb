@@ -1,13 +1,16 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update]
-
+  
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
   end
   
   def edit
+     @user = User.find(params[:id])
+      unless @user == current_user
+        redirect_to user_path(current_user)
+      end
   end
 
   def update
@@ -37,10 +40,4 @@ class Public::UsersController < ApplicationController
       params.require(:user).permit(:name, :username, :email, :introduction, :profile_image, :is_deleted )
     end
 
-    def ensure_correct_user
-      @user = User.find(params[:id])
-      unless @user == current_user
-        redirect_to user_path(current_user)
-      end
-    end
 end
