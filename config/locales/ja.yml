@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+      contact:
+        name: お名前
+        email: メールアドレス
+        subject: お問い合わせカテゴリー
+        message: お問い合わせ内容

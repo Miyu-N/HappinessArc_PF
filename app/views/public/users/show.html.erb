@@ -7,31 +7,19 @@
         <h2><%= @user.username %>さんの詳細ページ</h2>
       <% end %>
       </br>
-
       <%= render "show", user: @user %>
-      <% if user_signed_in? %>
         <% if @user == current_user %>
           <div class="d-flex justify-content-center">
-            <%= link_to "編集する", edit_user_path, class: "btn btn-success mt-5" %>
-            <%= link_to "退会する", unsubscribe_path, class: "btn btn-danger mt-5 ml-5" %>
-          </div>
-        <% end %>  
-      <% else %>
-          <div class="mt-5">
-            <h6>『新規登録』または『ログイン』をして詳細を見る</h6>
-            <div class="d-flex justify-content-center mx-auto mt-3">
-              <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-success mx-2" %>
-              <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary mx-2" %>
-            </div>
+            <%= link_to "編集する", edit_user_path, class: "btn btn-outline-info rounded-pill mt-5 far fa-edit" %>
+            <%= link_to "退会する", unsubscribe_path, class: "btn btn-outline-danger rounded-pill mt-5 ml-5 far fa-sad-tear" %>
           </div>
         <% end %>
-    </div>
-    
+      </div>  
       <div class="col-md-6 offset-md-1 ">
         <h2>投稿一覧</h2>  
         </br>
         <% if @user == current_user %>
-        <%= link_to "新しく投稿する", new_post_path, class: "btn btn-success" %>
+        <%= link_to "新しく投稿する", new_post_path, class: "btn btn-outline-info rounded-pill" %>
         <% end %>
         <%= render 'public/posts/index', posts: @posts %>
       </div> 

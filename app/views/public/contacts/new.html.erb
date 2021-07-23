@@ -2,7 +2,7 @@
   <div class="row mt-3 mb-3">
     <div class="col-lg-10 mx-auto">
       <h3 class="text-center">お問い合わせフォーム</h3>
-      <%= form_with model:@contact, url: contacts_confirm_path, local: true do |f| %>
+      <%= form_with model:@contact, url: contacts_confirm_contacts_path, local: true do |f| %>
         <div class="form-group">
           <%= f.label :name, 'お名前*' %>
           <%= f.text_field :name, autofocus: true, class: 'form-control' %>
@@ -19,12 +19,12 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :message, 'メッセージ*' %>
-          <%= f.text_area :message, size: '10x10', class: 'form-control' %>
+          <%= f.label :messages, 'メッセージ*' %>
+          <%= f.text_area :messages, size: '10x10', class: 'form-control' %>
         </div>
 
         <div class="actions text-center">
-          <%= f.submit '入力内容確認', class: "btn btn-outline-success col-4 mt-2" %>
+          <%= f.submit '入力内容確認', class: "btn btn-outline-info rounded-pill col-4 mt-2" %>
         </div>
       <% end %>
     </div>
