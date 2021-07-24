@@ -18,14 +18,16 @@
     <header class="sticky-top border-bottom bg-white">
       <%= render 'layouts/header' %>
     </header>
-    <main class="bg-light">
-      <%= render 'layouts/flash_messages' %>
-      <%= yield %>
-      <% unless admin_signed_in? %>
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
-        <div id="page-contact"><a href="/contacts/new"></a></div>
-      <% end %>
-    </main>
+    
+      <main class="bg-light">
+        <%= render 'layouts/flash_messages' %>
+        <%= yield %>
+        <% unless admin_signed_in? %>
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
+          <div id="page-contact"><a href="/contacts/new"></a></div>
+        <% end %>
+      </main>
+    
     <%= render 'layouts/footer' %>
   </body>
 </html>

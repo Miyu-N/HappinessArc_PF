@@ -43,7 +43,7 @@
       <div class="border-top py-3">
         <%= form_with model: @chat, class: 'd-flex' do |f| %>
           <%= f.hidden_field :room_id %>
-          <%= f.text_area :message, rows: 1, class: "chat-textarea form-control rounded-pill shadow-sm bg-white mr-1" %>
+          <%= f.text_area :message, rows: 1, class: "chat-textarea form-control text-dark rounded-pill shadow-sm bg-white mr-1" %>
           <%= button_tag type: 'submit', class: "btn btn-outline-info shadow-sm rounded-circle mr-1" do %>
             <i class="far fa-paper-plane"></i>
           <% end %>

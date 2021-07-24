@@ -1,7 +1,7 @@
 <table class="table-bordered rounded" style="width: 100%">
   <tr>
     <th class="table-active" style="width: 10%">アイコン</th>
-    <td class="align-middle">　<%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image_icon.jpg") %></td>
+    <td class="align-middle">　<%= attachment_image_tag(user, :profile_image, :fill, 100, 100, fallback: "no_image_icon.jpg", class: "rounded-circle") %></td>
   </tr>
   <% if current_user != user %>
     <tr>
@@ -47,9 +47,9 @@
     <%= link_to 'フォローする', user_relationships_path(user.id), method: :POST, class: "mt-3 btn btn-outline-info rounded-pill" %>
   <% end %>
 <% end %>
-  
+
 <% unless @user == current_user %>
   <% if current_user != user && current_user.following?(user) && user.following?(current_user)  %>
-    <%= link_to 'チャットする', chat_path(@user), class: "mt-3 btn btn-outline-info rounded-pill far fa-comments" %></div>
+    <%= link_to 'チャットする', chat_path(@user), class: "mt-3 btn btn-outline-info rounded-pill far fa-comments" %>
   <% end %>
-<% end %>  
+<% end %>
