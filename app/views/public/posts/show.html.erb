@@ -27,9 +27,11 @@
           <th>内容</th>
           <td><%= @post.body %></td> 
         </tr>
-        <tr>
-          <td class="like-btn"><%= render "public/likes/like-btn", post: @post %></td>
-      </table>
+        </table>
+        <div id="likes_buttons_<%= @post.id %>">
+             <%= render partial: 'public/likes/like', locals: {post: @post} %>
+        </div>
+        
       <% if @post.user == current_user %>
         <%= link_to "編集する", edit_post_path(@post), class: "btn btn-outline-info rounded-pill far fa-edit edit_post_#{@post.id}" %>
         <%= link_to "削除する", post_path(@post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-outline-danger rounded-pill far fa-trash-alt destroy_post_#{@post.id}"%>

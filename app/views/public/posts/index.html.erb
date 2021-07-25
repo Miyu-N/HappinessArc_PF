@@ -16,6 +16,10 @@
                       <%= link_to post.title, post_path(post), class: "text-muted" %>
                     </p>
                     <%= link_to post.user.username, user_path(post.user.id), class: "text-muted" %>
+                    <p id="likes_buttons_<%= post.id %>">
+                    <%= render partial: 'public/likes/like', locals: {post: post} %>
+                    </p>
+        
                   </div>
                 </div>
               </div>

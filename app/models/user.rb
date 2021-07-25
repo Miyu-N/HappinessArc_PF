@@ -25,6 +25,9 @@ class User < ApplicationRecord
   # 与フォロー関係を通じて参照→自分がフォローしている人
   has_many :followings, through: :relationships, source: :followed
 
+  def liked_by?(post_id)
+   likes.where(post_id: post_id).exists?
+  end
 
   def follow(user_id)
     relationships.create(followed_id: user_id)
