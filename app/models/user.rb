@@ -5,10 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   has_many :likes, dependent: :destroy
-  has_many :user_rooms, dependent: :destroy
   has_many :chats, dependent: :destroy
+  has_many :user_rooms, dependent: :destroy
+  has_many :rooms, through: :user_rooms, dependent: :destroy
   has_many :posts, dependent: :destroy
-  has_many :rooms, through: :user_rooms
+  
   
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
   validates :introduction, length: { maximum: 50 }
@@ -24,6 +25,9 @@ class User < ApplicationRecord
   # 与フォロー関係を通じて参照→自分がフォローしている人
   has_many :followings, through: :relationships, source: :followed
 
+  def liked_by?(post_id)
+   likes.where(post_id: post_id).exists?
+  end
 
   def follow(user_id)
     relationships.create(followed_id: user_id)

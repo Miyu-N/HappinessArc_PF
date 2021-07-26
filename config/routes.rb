@@ -1,21 +1,18 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'categories/show'
-  end
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
- 
+
 # ====ユーザー側====
   devise_for :users, controllers: {
     sessions: 'public/users/sessions',
     registrations: 'public/users/registrations',
     passwords: 'public/users/passwords',
   }
-  
+
   get 'search/search'
   scope module: :public do
     root to: 'homes#top'
-    get 'about' => 'homes#about'
     
+
     resources :users, only: [:show, :edit, :update, :destroy] do
       resource :relationships, only: [:create, :destroy]
     	get 'followings' => 'relationships#followings', as: 'followings'
@@ -23,36 +20,41 @@ Rails.application.routes.draw do
     end
       get 'users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
       patch 'users/:id/withdraw' => 'users#withdraw', as: 'withdraw'
-  
-    
+
+
     resources :posts do
-      resources :likes, only: [:create, :destroy]
-    end  
-  
-    
-    
-    resources :contacts, only: [:new, :create]
-    post 'contacts/confirm' => 'contacts#confirm', as: 'contacts_confirm'
-    post 'contacts/back' => 'contacts#back'
-    get 'contacts/done' => 'contacts#done'
+      resource :likes, only: [:create, :destroy]
+      
+    end
+
+
+
+    resources :contacts, only: [:new, :create] do
+      collection do
+        post 'confirm' => 'contacts#confirm', as: 'contacts_confirm'
+        post 'back' => 'contacts#back'
+        get 'done' => 'contacts#done'
+      end
+    end
     
     resources :chats, only: [:show, :create]
     resources :rooms, only: [:index]
-  end  
-    
-    
-#====管理側==== 
+  end
+
+
+#====管理側====
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
     passwords: 'admins/passwords'
   }
-  
+
   namespace :admin do
-  get '/' => 'homes#top', as: 'top'
+  get '/' => 'posts#index', as: 'top'
     resources :users, only: [:index, :show, :edit, :update]
     resources :categories, only: [:index, :create, :edit, :update]
     resources :posts, only: [:index, :show]
-  end  
-  resources :contacts, only: [:index, :show]
-  
+    resources :contacts, only: [:index, :show]
+  end
+
+
 end

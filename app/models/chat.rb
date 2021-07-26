@@ -1,5 +1,5 @@
 class Chat < ApplicationRecord
-  belongs_to :users
-  belongs_to :rooms
-  has_many :user_rooms, through: :room
+  belongs_to :user
+  belongs_to :room
+  validates :message, presence: true
 end

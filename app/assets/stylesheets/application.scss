@@ -17,4 +17,94 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
- @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Kosugi&family=Shippori+Mincho+B1&display=swap');
+ @import url(https://fonts.googleapis.com/css?family=Amatic+SC);
+ 
+ *{
+  font-family: 'Kosugi', sans-serif;
+ }
+ 
+ 
+ nav.pagination {
+  display: none;
+}
+.scroll-list {
+  padding: 0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+header {
+  opacity: .8;
+}
+
+
+body {
+  margin-bottom: 60px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.topic {
+  font-family: 'Amatic SC', cursive;
+  font-size: 40px;
+  background: url(http://webcreatorbox.com/sample/images/check.png) repeat-x 0 25px;
+  display: inline-block;
+  padding: 0 10px
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+
+// スライドショー
+#slide-show{
+  height: 600px;
+}
+.top-image1 {
+  background-image: url(top-img1.jpg);
+}
+.top-image2 {
+  background-image: url(top-img2.jpg);
+}
+.top-image3 {
+  background-image: url(top-img3.jpg);
+}
+.top-image4 {
+  background-image: url(top-img4.jpg);
+}
+.top-image5 {
+  background-image: url(top-img5.jpg);
+}
+
+.card:hover{
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  transition-duration: 0.5s;
+ }
+ 
+ .like-btn {
+ font-size: 15px;
+ color: #808080;
+}
+
+.unlike-btn {
+ font-size: 15px;
+ color: #e54747;
+}
+
+
+

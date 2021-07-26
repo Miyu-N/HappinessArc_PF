@@ -1,0 +1,11 @@
+<% @posts.each do |post| %>
+  <div id="post_<%= post.id %>">
+    <div class="card-deck text-center d-inline-flex mt-3 col-md-3">
+      <%= link_to attachment_image_tag(post, :image, format: "jpeg", size: "100x100", fallback: "no_image.jpg", class: "rounded"), post_path(post.id) %>
+        <div class="card-title">
+          <%= link_to post.title, post_path(post), class: "text-muted" %>
+        </div>
+    </div>
+  </div>
+<% end %>
+  
