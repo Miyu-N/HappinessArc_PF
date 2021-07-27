@@ -57,7 +57,8 @@ li {
 .topic {
   font-family: 'Amatic SC', cursive;
   font-size: 40px;
-  background-image: image-url('check.png') repeat-x 0 25px;
+  background-image: image-url('check.png');
+  background-repeat: repeat-x;
   display: inline-block;
   padding: 0 10px
 }
