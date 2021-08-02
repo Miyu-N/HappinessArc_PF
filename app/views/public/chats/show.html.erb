@@ -3,9 +3,7 @@
     <div class="col-11 col-md-8 mx-auto border rounded">
       <div class="d-flex justify-content-between align-items-center border-bottom py-2">
         <div class="col">
-          <%= link_to rooms_path do %>
-            <i class="bi bi-chevron-left fa-lg text-secondary"></i>
-          <% end %>
+
         </div>
         <div class="col text-center">
           <%= @user.username %>
@@ -21,7 +19,7 @@
         <% @chats.each do |chat| %>
           <% if chat.user == current_user %>
             <li class="my-3 pr-2 text-right">
-              <small class="text-muted"><%= chat.created_at.strftime("%-H:%M") %></small>
+              <small class="text-muted"><%= chat.created_at.strftime("%m月%d日 %-H:%M") %></small>
               <div class="chat-current-user d-inline-block shadow p-2 text-dark text-left">
                 <%= safe_join(chat.message.split("\n"), tag(:br)) %>
               </div>
@@ -35,7 +33,7 @@
                 <% end %>
               </div>
               <div class="chat-opponent-user d-inline-block shadow p-2 bg-white"><%= safe_join(chat.message.split("\n"), tag(:br)) %></div>
-              <small class="text-muted"><%= chat.created_at.strftime("%-H:%M") %></small>
+              <small class="text-muted"><%= chat.created_at.strftime("%m月%d日 %-H:%M") %></small>
             </li>
           <% end%>
         <% end %>

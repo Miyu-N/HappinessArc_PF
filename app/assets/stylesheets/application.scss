@@ -13,18 +13,18 @@
  *= require_tree .
  *= require_self
  */
- 
+
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
  @import url('https://fonts.googleapis.com/css2?family=Kosugi&family=Shippori+Mincho+B1&display=swap');
  @import url(https://fonts.googleapis.com/css?family=Amatic+SC);
- 
+
  *{
   font-family: 'Kosugi', sans-serif;
  }
- 
- 
+
+
  nav.pagination {
   display: none;
 }
@@ -44,6 +44,7 @@ header {
 
 body {
   margin-bottom: 60px;
+  background: linear-gradient(to top, #e6e6fa 0%, white 100%);
 }
 
 a:hover {
@@ -96,7 +97,7 @@ footer {
   transform: translateY(-10px);
   transition-duration: 0.5s;
  }
- 
+
  .like-btn {
  font-size: 15px;
  color: #808080;
@@ -106,6 +107,7 @@ footer {
  font-size: 15px;
  color: #e54747;
 }
+
 
 
 
