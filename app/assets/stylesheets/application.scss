@@ -28,9 +28,7 @@
  nav.pagination {
   display: none;
 }
-.scroll-list {
-  padding: 0;
-}
+
 
 html {
   position: relative;
@@ -92,11 +90,21 @@ footer {
   background-image: image-url('top-img5.jpg');
 }
 
+.card {
+  margin: 0 auto 30px;
+  max-width: 376px;
+  height: 350px;
+}
+.card-body p {
+  text-align: left;
+}
+
+
 .card:hover{
   box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
   transform: translateY(-10px);
   transition-duration: 0.5s;
- }
+}
 
  .like-btn {
  font-size: 15px;

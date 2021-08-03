@@ -1,31 +1,31 @@
 <div class="container">
-  <div class="col-md-12 mx-auto">
-    <div class="mt-3 mb-3">
-      <div class="items-list text-center">
-          <h1>投稿一覧</h1>
-          <div class="offset-md-11 col-md-1 " >
-            <%= link_to '', new_post_path, class: "fas fa-plus fa-2x text-info" %>
-          </div>
-          <div class="scroll-list jscroll">
-            <% @posts.each do |post| %>
-              <div class="card-deck text-center d-inline-flex mt-3 col-md-3">
-                <div class="card border-0">
-                    <%= link_to attachment_image_tag(post, :image, format: "jpeg", size: "200x180", fallback: "no_image.jpg", class: "rounded"), post_path(post.id) %>
+  <div class="texts-wrapper">
+    <div class="contents-title text-center">
+      <div class="row">
+        <div class="offset-md-11 col-md-1 " >
+          <%= link_to '', new_post_path, class: "fas fa-plus fa-2x text-info" %>
+        </div>
+        
+          <% @posts.each do |post| %>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card">
+                <%= link_to attachment_image_tag(post, :image, format: "jpeg", size: "260x210", fallback: "no_image.jpg"), post_path(post.id) %>
                   <div class="card-body">
                     <p class="card-title">
                       <%= link_to post.title, post_path(post), class: "text-muted" %>
                     </p>
+                    <p>
                     <%= link_to post.user.username, user_path(post.user.id), class: "text-muted" %>
+                    </p>
                     <p id="likes_buttons_<%= post.id %>">
                     <%= render partial: 'public/likes/like', locals: {post: post} %>
                     </p>
-        
                   </div>
-                </div>
               </div>
-            <% end %>
-              <%= paginate @posts %>
-          </div>    
+            </div>
+          <% end %>
+          <%= paginate @posts %>
+          
       </div>
     </div>
   </div>
