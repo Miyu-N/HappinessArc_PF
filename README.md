@@ -1,7 +1,7 @@
 # Happiness Arc (幸せの架け橋)　
-![clearlogo](https://user-images.githubusercontent.com/81693792/128597352-34dbed74-be10-42c5-9992-42d7d0aadf82.jpg)　[HappinessArc](http://13.230.109.214/)
+![clearlogo](https://user-images.githubusercontent.com/81693792/128597352-34dbed74-be10-42c5-9992-42d7d0aadf82.jpg)　
 ![git_cat](https://user-images.githubusercontent.com/81693792/128689548-cfe56484-3257-40b2-ad57-4f399ba111ff.jpg)
-
+[HappinessArc](http://13.230.109.214/)
 ## サイト概要
 
 保護猫の里親募集情報サイト
