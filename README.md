@@ -34,13 +34,11 @@ Instagram 等で猫の保護をしたという投稿を多く見かけます。<
 ・保護主の支援をしたいとき</br>
 
 ## 設計書
-
 ER図 / UI flows https://drive.google.com/file/d/1r0RZoHYTUzxVU-V7GBiLAH7dAt9bsA8q/view?usp=sharing </br>
 テーブル定義書 https://drive.google.com/file/d/1wwKzHLSqdyYO6Fxd2ZKUXCQVEyYKt_ui/view?usp=sharing </br>
 
 
 ## チャレンジ要素一覧
-
 https://docs.google.com/spreadsheets/d/1Ol3C7Wtwj6fOv93H_9aD7mWlJHyYtkK-MulvT39HyzI/edit?usp=sharing
 
 ## 開発環境
