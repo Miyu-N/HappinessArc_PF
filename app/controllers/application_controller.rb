@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     when Admin
       admin_top_path
     when User
-      posts_path
+      root_path
     end
   end
   

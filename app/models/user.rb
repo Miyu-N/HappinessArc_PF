@@ -30,6 +30,7 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
       user.name = 'Guest'
       user.username = 'guestuser'
+      user.introduction = "helloguest"
     end
   end
 
