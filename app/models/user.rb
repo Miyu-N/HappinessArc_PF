@@ -24,6 +24,14 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_of_relationships, source: :follower
   # 与フォロー関係を通じて参照→自分がフォローしている人
   has_many :followings, through: :relationships, source: :followed
+  
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = 'Guest'
+      user.username = 'guestuser'
+    end
+  end
 
   def liked_by?(post_id)
    likes.where(post_id: post_id).exists?
@@ -46,6 +54,4 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
-  
-  
 end

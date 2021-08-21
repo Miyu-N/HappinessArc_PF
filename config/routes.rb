@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
+ 
 # ====ユーザー側====
   devise_for :users, controllers: {
     sessions: 'public/users/sessions',
     registrations: 'public/users/registrations',
     passwords: 'public/users/passwords',
   }
+  
+  # ====ゲストユーザー側====
+  devise_scope :user do
+    post 'public/users/guest_sign_in', to: 'public/users/sessions#guest_sign_in'
+  end
+
 
   get 'search/search'
   scope module: :public do
