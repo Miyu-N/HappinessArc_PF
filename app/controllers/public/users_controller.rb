@@ -34,9 +34,9 @@ class Public::UsersController < ApplicationController
     redirect_to root_path
     flash[:notice] = "ご利用ありがとうございました。"
   end
+  
 
  private
-
     def user_params
       params.require(:user).permit(:name, :username, :email, :introduction, :profile_image, :is_deleted )
     end
