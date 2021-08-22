@@ -8,10 +8,10 @@ Rails.application.routes.draw do
     passwords: 'public/users/passwords',
   }
   
-  # ====ゲストユーザー側====
-  devise_scope :user do
-    post 'public/users/guest_sign_in', to: 'public/users/sessions#guest_sign_in'
-  end
+  # # ====ゲストユーザー側====
+  # devise_scope :user do
+  #   post 'public/users/guest_sign_in', to: 'public/users/sessions#guest_sign_in'
+  # end
 
 
   get 'search/search'
