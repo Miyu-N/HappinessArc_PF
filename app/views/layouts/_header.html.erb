@@ -13,14 +13,14 @@
           <li><%= link_to "ログアウト", destroy_user_session_path,class:"nav-link text-dark",method: :delete %></li>
           <%= link_to attachment_image_tag (current_user), :profile_image, size: "35x35", format: "jpeg",
                   fallback: "no_image_icon.jpg", style: 'object-fit: cover;', class: 'rounded-circle ml-2' %>
-        
+
         <% elsif admin_signed_in? %>
           <li><%= link_to"投稿一覧",admin_posts_path,  class:"nav-link text-dark" %></li>
           <li><%= link_to"ユーザー一覧",admin_users_path, class:"nav-link text-dark" %></li>
           <li><%= link_to"カテゴリー一覧", admin_categories_path, class:"nav-link text-dark" %></li>
           <li><%= link_to "お問い合わせ一覧", admin_contacts_path, class:"nav-link text-dark" %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path,class:" nav-link text-dark",method: :delete %></li>
-          
+
         <% else %>
           <li><%= link_to"ログイン", new_user_session_path,  class:"nav-link text-dark" %></li>
         <% end %>
