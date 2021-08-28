@@ -7,7 +7,7 @@ class Public::PostsController < ApplicationController
   end
   
   def index
-    @posts = Post.all.page(params[:page]).per(8)
+    @posts = Post.all.page(params[:page]).per(9)
     @categories = Category.all
   end
   
