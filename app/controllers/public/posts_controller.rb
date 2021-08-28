@@ -1,16 +1,16 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!
-  
-  
+
+
   def new
     @post = Post.new
   end
-  
+
   def index
-    @posts = Post.all.page(params[:page]).per(9)
+    @posts = Post.all.page(params[:page]).per(18)
     @categories = Category.all
   end
-  
+
   def create
     @post = Post.new(post_params)
      @post.user_id = current_user.id
@@ -21,15 +21,15 @@ class Public::PostsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def show
     @post = Post.find(params[:id])
-  end  
-  
+  end
+
   def edit
     @post = Post.find(params[:id])
   end
-  
+
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
@@ -39,19 +39,19 @@ class Public::PostsController < ApplicationController
       render "edit"
     end
   end
-  
+
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
     flash[:notice] = "投稿を削除しました"
-  end  
-  
+  end
+
   def like
     @post = Post.find(params[:id])
     @likes = Like.where(post_id: @post.id)
   end
-  
+
   def weekly_rank
     to = Time.current.at_end_of_day
     from = (to - 6.day).at_beginning_of_day
@@ -62,11 +62,11 @@ class Public::PostsController < ApplicationController
       }
   end
 
-  
+
   private
   def post_params
       params.require(:post).permit(:title, :image, :body, :user_id, :category_id)
   end
-  
 
-end  
+
+end
