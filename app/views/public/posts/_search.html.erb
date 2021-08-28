@@ -1,0 +1,9 @@
+<div class="mt-3 d-flex align-items-center">
+  <h5 class="d-inline-block mb-0">カテゴリー検索</h5>
+  <div class="d-inline-block ml-3">
+    <%= form_with url: posts_search_path(category), method: :get, local: true do |f| %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, :prompt => "選択してください", required: "required" %>
+      <%= f.submit '検索', class: "btn btn-info" %>
+    <% end %>
+  </div>
+</div>

@@ -61,6 +61,12 @@ class Public::PostsController < ApplicationController
         a.liked_users.includes(:likes).where(created_at: from...to).size
       }
   end
+  
+  def search
+    @category = Category.find_by(id: params[:category_id])
+    @posts = Post.all.page(params[:page]).per(18)
+    @post_count = Post.all
+  end
 
 
   private
