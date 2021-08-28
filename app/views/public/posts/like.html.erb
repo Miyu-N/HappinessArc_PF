@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="col-md-8 offset-md-2 mx-auto">
+    <div class="mt-3 mb-3">
+      <div class="items-list text-center">
+        <h2>いいねしたユーザー一覧</h2>
+        <div class="container-fluid">
+            <% @likes.each do |like| %>
+              <div class="profile-shape">
+                <%= attachment_image_tag like.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size: "60x60" %>
+                  <%= link_to user_path(like.user), data: {"turbolinks" => false} do %>
+                    <%= like.user.username %>
+                  <% end %>
+              </div>
+            <% end %>
+        </div>
+    </div>
+  </div>
+</div>

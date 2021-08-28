@@ -7,19 +7,19 @@
     <div class="navbar-collapse collapse" id="navbarNavDropdown" style="">
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
-          <li><%= link_to "投稿一覧", posts_path, class:"nav-link text-dark" %></a></li>
-          <li><%= link_to "マイページ", user_path(current_user.id), class:"nav-link text-dark" %></a></li>
-          <li><%= link_to "チャット一覧", rooms_path, class:"nav-link text-dark" %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path,class:"nav-link text-dark",method: :delete %></li>
+          <li><%= link_to "投稿一覧", posts_path, class:"nav-link text-dark text-right" %></a></li>
+          <li><%= link_to "マイページ", user_path(current_user.id), class:"nav-link text-dark text-right" %></a></li>
+          <li><%= link_to "チャット一覧", rooms_path, class:"nav-link text-dark text-right" %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path,class:"nav-link text-dark text-right",method: :delete %></li>
           <%= link_to attachment_image_tag (current_user), :profile_image, size: "35x35", format: "jpeg",
-                  fallback: "no_image_icon.jpg", style: 'object-fit: cover;', class: 'rounded-circle ml-2' %>
+                  fallback: "no_image_icon.jpg", style: 'object-fit: cover;', class: 'rounded-circle ml-2 text-right' %>
 
         <% elsif admin_signed_in? %>
-          <li><%= link_to"投稿一覧",admin_posts_path,  class:"nav-link text-dark" %></li>
-          <li><%= link_to"ユーザー一覧",admin_users_path, class:"nav-link text-dark" %></li>
-          <li><%= link_to"カテゴリー一覧", admin_categories_path, class:"nav-link text-dark" %></li>
-          <li><%= link_to "お問い合わせ一覧", admin_contacts_path, class:"nav-link text-dark" %></li>
-          <li><%= link_to "ログアウト", destroy_admin_session_path,class:" nav-link text-dark",method: :delete %></li>
+          <li><%= link_to"投稿一覧",admin_posts_path,  class:"nav-link text-dark text-right" %></li>
+          <li><%= link_to"ユーザー一覧",admin_users_path, class:"nav-link text-dark text-right" %></li>
+          <li><%= link_to"カテゴリー一覧", admin_categories_path, class:"nav-link text-dark text-right" %></li>
+          <li><%= link_to "お問い合わせ一覧", admin_contacts_path, class:"nav-link text-dark text-right" %></li>
+          <li><%= link_to "ログアウト", destroy_admin_session_path,class:" nav-link text-dark text-right",method: :delete %></li>
 
         <% else %>
           <li><%= link_to"ログイン", new_user_session_path,  class:"nav-link text-dark text-right" %></li>
