@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mt-3">
-    <div class="col-md-5 ">
+    <div class="col-md-8 offset-md-2 ">
       <% if @user == current_user %>
         <h2>マイページ</h2>
       <% else %>
@@ -14,13 +14,15 @@
             <%= link_to "退会する", unsubscribe_path, class: "btn btn-outline-danger rounded-pill mt-5 ml-5 far fa-sad-tear" %>
           </div>
         <% end %>
-      </div>  
-      <div class="col-md-6 offset-md-1 ">
-        </br>
-        <% if @user == current_user %>
-        <%= link_to "新しく投稿する", new_post_path, class: "btn btn-outline-info rounded-pill fas fa-plus" %>
-        <% end %>
-        <%= render 'public/posts/index', posts: @posts %>
-      </div> 
+    </div>
   </div>
+  <div class="border-top">
+    <div class="offset-md-8 col-md-4 mt-5 mb-4">  
+      <% if @user == current_user %>
+        <%= link_to "いいねした投稿を見る", new_post_path, class: "btn btn-outline-danger rounded-pill far fa-heart" %>
+        <%= link_to '', new_post_path, class: "fas fa-plus fa-2x text-info ml-4" %>
+      <% end %>
+    </div>
+  </div>
+  <%= render 'public/posts/index', posts: @posts %>
 </div>
