@@ -17,12 +17,11 @@
     </div>
   </div>
   <div class="border-top">
-    <div class="offset-md-8 col-md-4 mt-5 mb-4">  
+    <div class="offset-md-11 col-md-1 mt-5 " >
       <% if @user == current_user %>
-        <%= link_to "いいねした投稿を見る", new_post_path, class: "btn btn-outline-danger rounded-pill far fa-heart" %>
         <%= link_to '', new_post_path, class: "fas fa-plus fa-2x text-info ml-4" %>
       <% end %>
-    </div>
+    </div>  
   </div>
   <%= render 'public/posts/index', posts: @posts %>
 </div>

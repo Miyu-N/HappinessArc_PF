@@ -33,6 +33,8 @@ Rails.application.routes.draw do
       resource :likes, only: [:create, :destroy]
       
     end
+    
+    get 'posts/:id/likes' => 'posts#like', as: 'like_index'
 
 
 
