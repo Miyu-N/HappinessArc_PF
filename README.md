@@ -1,5 +1,7 @@
 # Happiness Arc (幸せの架け橋)　
 ![clearlogo](https://user-images.githubusercontent.com/81693792/128597352-34dbed74-be10-42c5-9992-42d7d0aadf82.jpg)　☆サイトへはこちら→[HappinessArc](https://happinessarc.com/)
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　 ☆ログイン用email:happiness@arc.com パスワード:111111
+                                                             
 ![git_cat](https://user-images.githubusercontent.com/81693792/128689548-cfe56484-3257-40b2-ad57-4f399ba111ff.jpg)
 
 ## サイト概要
