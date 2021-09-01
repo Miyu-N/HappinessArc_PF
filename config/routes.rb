@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'search/search'
   scope module: :public do
     root to: 'homes#top'
+    get 'posts/search' => 'posts#search'
     
 
     resources :users, only: [:show, :edit, :update, :destroy] do
@@ -32,6 +33,8 @@ Rails.application.routes.draw do
       resource :likes, only: [:create, :destroy]
       
     end
+    
+    get 'posts/:id/likes' => 'posts#like', as: 'like_index'
 
 
 
